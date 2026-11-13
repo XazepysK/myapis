@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>thesync-api - Free REST API Playground, Downloader, Search, AI and Tools</title>
+<meta name="description" content="thesync-api is a free REST API with an interactive playground: social media downloader, music and video search, AI chat, image and text tools, live info feeds, and random anime images. No key required.">
+<meta name="keywords" content="thesync-api, free api, rest api, api playground, tiktok downloader, instagram downloader, youtube search, soundcloud search, ai chat, qr code generator, dns lookup, currency converter, anime api">
+<meta name="author" content="Rijal">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="rating" content="general">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="application-name" content="thesync-api">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f6f3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="/">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="icon" type="image/png" href="/assets/icon.png">
+<link rel="apple-touch-icon" href="/assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="thesync-api">
+<meta property="og:title" content="thesync-api - Free REST API Playground">
+<meta property="og:description" content="Free REST API with an interactive playground: downloader, search, AI, tools, live info, and random anime images. No key required.">
+<meta property="og:url" content="/">
+<meta property="og:image" content="/assets/icon.png">
+<meta property="og:image:alt" content="thesync-api logo">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="thesync-api - Free REST API Playground">
+<meta name="twitter:description" content="Free REST API with an interactive playground: downloader, search, AI, tools, live info, and random anime images.">
+<meta name="twitter:image" content="/assets/icon.png">
+<meta name="twitter:image:alt" content="thesync-api logo">
+<script type="application/ld+json" id="seo-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "thesync-api",
+  "alternateName": "thesync API",
+  "description": "Free REST API with an interactive playground: downloader, search, AI, tools, live info, and random anime images.",
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "thesync-api",
+    "url": "/",
+    "logo": "/assets/icon.png"
+  }
+}
+</script>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+    <button class="icon-btn" id="menu-btn" aria-label="Open menu"></button>
+    <a class="brand" href="/">
+        <img src="/assets/icon.png" alt="" class="brand-icon">
+        <span class="brand-name" id="brand-name">thesync-api</span>
+    </a>
+    <span class="crumb-sep">/</span>
+    <span class="crumb" id="crumb">Home</span>
+    <div class="topbar-actions">
+        <button class="icon-btn" id="theme-btn" aria-label="Toggle theme"></button>
+        <a class="icon-btn" href="/contributors" id="support-btn" aria-label="Support us"></a>
+        <img src="/assets/icon.png" alt="thesync-api" class="avatar">
+    </div>
+</header>
+
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Side menu"></aside>
+
+<main id="view" class="view"></main>
+
+<nav class="bottomnav" aria-label="Main navigation">
+    <a href="/" data-nav="home" class="nav-item" aria-label="Home"><span class="nav-label">Home</span></a>
+    <a href="/playground" data-nav="playground" class="nav-item" aria-label="Playground"><span class="nav-label">Playground</span></a>
+    <a href="/docs" data-nav="docs" class="nav-item" aria-label="Documentation"><span class="nav-label">Documentation</span></a>
+    <a href="/contributors" data-nav="contributors" class="nav-item" aria-label="Contributors"><span class="nav-label">Contributors</span></a>
+</nav>
+
+<noscript>
+    <div style="padding:24px;max-width:720px;margin:0 auto;font-family:system-ui,sans-serif;">
+        <h1>thesync-api</h1>
+        <p>Free REST API with an interactive playground: social media downloader, music and video search, AI chat, image and text tools, live info feeds, and random anime images. Enable JavaScript to use the playground, or call the JSON endpoints directly under /api/v1/.</p>
+        <ul>
+            <li><a href="/docs">Documentation</a></li>
+            <li><a href="/playground">Playground</a></li>
+            <li><a href="/contributors">Contributors</a></li>
+        </ul>
+    </div>
+</noscript>
+
+<div id="toast" class="toast" role="status"></div>
+<script src="/app.js" type="module"></script>
+</body>
+</html>

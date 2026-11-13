@@ -1,0 +1,1195 @@
+{
+  "site": {
+    "name": "thesync-api",
+    "tagline": "What do you want to try today? Every endpoint is ready to use.",
+    "version": "v1",
+    "url": "https://api.thesync.my.id",
+    "tags": [
+      "thesync-api",
+      "xazepysk",
+      "free api",
+      "rest api",
+      "api playground",
+      "public api",
+      "no api key",
+      "downloader api",
+      "search api",
+      "ai api",
+      "tools api",
+      "anime api",
+      "indonesia api"
+    ],
+    "repo": "https://github.com/xazepysk",
+    "donate": "https://www.zeppeli.my.id",
+    "contributors": [
+      {
+        "name": "Rijal",
+        "role": "Creator & Maintainer",
+        "url": "https://t.me/ZanLugner"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "name": "downloader",
+      "label": "Downloader",
+      "description": "Download media from social platforms without watermarks, with quality options.",
+      "icon": "download",
+      "endpoints": [
+        {
+          "name": "tiktok",
+          "method": "GET",
+          "description": "Fetch TikTok video info with HD, CDN, and MP3 download links.",
+          "response": "json",
+          "tags": [
+            "tiktok",
+            "tiktok downloader",
+            "tiktok video",
+            "no watermark",
+            "mp3"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "type": "video",
+            "title": "Funny cat compilation",
+            "uploader": "@catlover",
+            "thumbnail": "https://p16-sign.tiktokcdn.com/obj/example.jpeg",
+            "stats": {
+              "views": 1200000,
+              "likes": 85000,
+              "comments": 3200
+            },
+            "hdDetails": {
+              "resolution": 1080,
+              "codec": "h264",
+              "sizeBytes": 8400000
+            },
+            "downloads": {
+              "videoHd": {
+                "url": "https://ssstiktok.me/download-file?type=mp4hd&id=abc123",
+                "filename": "cat-compilation-HD.mp4"
+              },
+              "videoCdn": {
+                "url": "https://v16m.tiktokcdn.com/example.mp4",
+                "filename": "cat-compilation.mp4"
+              },
+              "mp3": {
+                "url": "https://ssstiktok.me/download-file?type=mp3&id=abc123",
+                "filename": "cat-compilation.mp3"
+              }
+            }
+          },
+          "params": [
+            {
+              "name": "url",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "https://www.tiktok.com/@user/video/1234567890",
+              "description": "TikTok video URL to download."
+            }
+          ]
+        },
+        {
+          "name": "instagram",
+          "method": "GET",
+          "description": "Download Instagram media (post, reel, story, profile) directly as a file.",
+          "response": "binary",
+          "tags": [
+            "instagram",
+            "instagram downloader",
+            "reels",
+            "story",
+            "photo"
+          ],
+          "exampleResponse": {
+            "contentType": "video/mp4",
+            "note": "Raw media bytes (video/mp4 or image/jpeg) streamed directly as the response body."
+          },
+          "params": [
+            {
+              "name": "url",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "https://www.instagram.com/reel/AbCdEf/",
+              "description": "Instagram post, reel, story, or profile URL."
+            }
+          ]
+        },
+        {
+          "name": "facebook",
+          "method": "GET",
+          "description": "Extract Facebook video download links in available qualities via GetVidFB.",
+          "response": "json",
+          "tags": [
+            "facebook",
+            "facebook downloader",
+            "fb video",
+            "video download"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "thumbnail": "https://scontent.example/thumb.jpg",
+              "title": "Family vacation clip",
+              "data": [
+                {
+                  "quality": "hd",
+                  "url": "https://video.example/hd.mp4"
+                },
+                {
+                  "quality": "sd",
+                  "url": "https://video.example/sd.mp4"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "url",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "https://www.facebook.com/share/r/12BFZAtjpS8/",
+              "description": "Facebook video URL."
+            }
+          ]
+        },
+        {
+          "name": "twitter",
+          "method": "GET",
+          "description": "Extract a Twitter/X video download link, title, and thumbnail via SnapTwitter.",
+          "response": "json",
+          "tags": [
+            "twitter",
+            "x",
+            "twitter downloader",
+            "twitter video"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "title": "9GAG on X",
+              "description": "Funny video",
+              "thumbnail": "https://pbs.twimg.com/example.jpg",
+              "downloadLink": "https://snaptwitter.com/download/example.mp4"
+            }
+          },
+          "params": [
+            {
+              "name": "url",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "https://twitter.com/9GAG/status/1661175429859012608",
+              "description": "Twitter/X video URL."
+            }
+          ]
+        },
+        {
+          "name": "pinterest",
+          "method": "GET",
+          "description": "Resolve a Pinterest pin into image, video, or GIF download URLs in multiple sizes.",
+          "response": "json",
+          "tags": [
+            "pinterest",
+            "pinterest downloader",
+            "pin",
+            "image",
+            "gif"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "id": "1234567890",
+              "title": "Minimal workspace",
+              "description": "Clean desk setup",
+              "created_at": "2026-01-05T10:00:00Z",
+              "original_url": "https://pin.it/7jWBaQGhd",
+              "final_url": "https://www.pinterest.com/pin/1234567890/",
+              "media_urls": {
+                "image": "https://i.pinimg.com/originals/example.jpg",
+                "video": null
+              }
+            }
+          },
+          "params": [
+            {
+              "name": "url",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "https://pin.it/7jWBaQGhd",
+              "description": "Pinterest pin URL. Short pin.it links work too."
+            }
+          ]
+        },
+        {
+          "name": "snackvideo",
+          "method": "GET",
+          "description": "Scrape Snack Video metadata and the direct video URL from a share link.",
+          "response": "json",
+          "tags": [
+            "snackvideo",
+            "snack video downloader",
+            "short video"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "url": "https://s.snackvideo.com/p/dwlMd51U",
+              "title": "Street food tour",
+              "description": "Jakarta street food",
+              "thumbnail": "https://p1.snackvideo.com/example.jpg",
+              "uploadDate": "2026-02-01",
+              "videoUrl": "https://v1.snackvideo.com/example.mp4"
+            }
+          },
+          "params": [
+            {
+              "name": "url",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "https://s.snackvideo.com/p/dwlMd51U",
+              "description": "Snack Video share URL."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search",
+      "label": "Search",
+      "description": "Search music, videos, tracks, and knowledge across multiple sources.",
+      "icon": "search",
+      "endpoints": [
+        {
+          "name": "music",
+          "method": "GET",
+          "description": "One endpoint for home, explore, charts, search, detail, related, lyrics, synced lyrics, artist, album, and playlist.",
+          "response": "json",
+          "tags": [
+            "music",
+            "music search",
+            "song",
+            "lyrics",
+            "playlist",
+            "album"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "action": "search",
+            "data": [
+              {
+                "id": "dQw4w9WgXcQ",
+                "title": "Shape of My Heart",
+                "artist": "Sting",
+                "duration": 240,
+                "thumbnail": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+              }
+            ]
+          },
+          "params": [
+            {
+              "name": "action",
+              "in": "query",
+              "type": "enum",
+              "required": false,
+              "default": "search",
+              "options": [
+                "home",
+                "explore",
+                "charts",
+                "suggestions",
+                "search",
+                "detail",
+                "related",
+                "lyrics",
+                "synced",
+                "artist",
+                "album",
+                "playlist"
+              ],
+              "description": "Action to run against the music catalog."
+            },
+            {
+              "name": "q",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "placeholder": "shape of my heart",
+              "description": "Search keyword, title, or id depending on the action."
+            },
+            {
+              "name": "filter",
+              "in": "query",
+              "type": "enum",
+              "required": false,
+              "default": "songs",
+              "options": [
+                "songs",
+                "albums",
+                "artists",
+                "playlists"
+              ],
+              "description": "Result filter for the search action."
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "placeholder": "dQw4w9WgXcQ",
+              "description": "videoId for the detail and related actions."
+            },
+            {
+              "name": "browseId",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "description": "browseId for the lyrics, artist, album, and playlist actions."
+            },
+            {
+              "name": "title",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "description": "Song title for the synced action."
+            },
+            {
+              "name": "artist",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "description": "Artist name for the synced action."
+            },
+            {
+              "name": "dur",
+              "in": "query",
+              "type": "number",
+              "required": false,
+              "placeholder": "240",
+              "description": "Song duration in seconds for the synced action."
+            }
+          ]
+        },
+        {
+          "name": "youtube",
+          "method": "GET",
+          "description": "Search YouTube videos and channels, returning titles, IDs, thumbnails, duration, and stats.",
+          "response": "json",
+          "tags": [
+            "youtube",
+            "youtube search",
+            "video search",
+            "youtube api"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": [
+              {
+                "type": "video",
+                "videoId": "dQw4w9WgXcQ",
+                "title": "Rick Astley - Never Gonna Give You Up",
+                "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "thumbnail": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+                "duration": "3:33",
+                "views": "1.4B views",
+                "published": "13 years ago",
+                "channel": "Rick Astley",
+                "channelUrl": "https://www.youtube.com/@RickAstley",
+                "description": "Official video"
+              }
+            ]
+          },
+          "params": [
+            {
+              "name": "query",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "sc bot",
+              "description": "YouTube search keyword."
+            }
+          ]
+        },
+        {
+          "name": "soundcloud",
+          "method": "GET",
+          "description": "Search SoundCloud tracks with genre, duration, artwork, and playback counts.",
+          "response": "json",
+          "tags": [
+            "soundcloud",
+            "soundcloud search",
+            "track",
+            "audio"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": [
+              {
+                "title": "duka",
+                "genre": "Pop",
+                "created_at": "2025-07-09T00:00:00Z",
+                "duration": 214000,
+                "permalink": "duka",
+                "comment_count": 120,
+                "artwork_url": "https://i1.sndcdn.com/artworks-example.jpg",
+                "permalink_url": "https://soundcloud.com/artist/duka",
+                "playback_count": 500000
+              }
+            ]
+          },
+          "params": [
+            {
+              "name": "query",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "duka",
+              "description": "SoundCloud search keyword."
+            }
+          ]
+        },
+        {
+          "name": "wikipedia",
+          "method": "GET",
+          "description": "Fetch the lead summary and thumbnail of a Wikipedia article in any language.",
+          "response": "json",
+          "tags": [
+            "wikipedia",
+            "wiki",
+            "encyclopedia",
+            "summary",
+            "knowledge"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "title": "Jakarta",
+              "description": "Capital of Indonesia",
+              "wiki": "Jakarta is the capital and largest city of Indonesia.",
+              "thumb": "https://upload.wikimedia.org/example.jpg",
+              "url": "https://en.wikipedia.org/wiki/Jakarta"
+            }
+          },
+          "params": [
+            {
+              "name": "query",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "Jakarta",
+              "description": "Article title or search keyword."
+            },
+            {
+              "name": "lang",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "default": "en",
+              "placeholder": "en",
+              "description": "Wikipedia language code, for example en, id, or ja."
+            }
+          ]
+        },
+        {
+          "name": "applemusic",
+          "method": "GET",
+          "description": "Search Apple Music for tracks and artists, with title, artist, link, and artwork.",
+          "response": "json",
+          "tags": [
+            "apple music",
+            "apple music search",
+            "song",
+            "artist"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": [
+              {
+                "title": "duka",
+                "artist": "Pamungkas",
+                "link": "https://music.apple.com/us/album/duka/123",
+                "image": "https://is1-ssl.mzstatic.com/example.jpg"
+              }
+            ]
+          },
+          "params": [
+            {
+              "name": "query",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "duka",
+              "description": "Song title or artist name."
+            },
+            {
+              "name": "region",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "default": "us",
+              "placeholder": "id",
+              "description": "Two-letter storefront country code, for example us or id."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ai",
+      "label": "AI",
+      "description": "Lightweight AI chat for quick answers straight from the API.",
+      "icon": "spark",
+      "endpoints": [
+        {
+          "name": "deepai",
+          "method": "GET",
+          "description": "Send a question to the DeepAI chat model and receive a text answer.",
+          "response": "json",
+          "tags": [
+            "ai",
+            "ai chat",
+            "chatbot",
+            "deepai",
+            "text generation"
+          ],
+          "exampleResponse": {
+            "question": "what is a rest api?",
+            "additionalPrompt": null,
+            "result": "A REST API is an interface that follows REST principles, using HTTP methods to access resources."
+          },
+          "params": [
+            {
+              "name": "text",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "what is a rest api?",
+              "description": "Main question or prompt."
+            },
+            {
+              "name": "sysPrompt",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "placeholder": "answer in english",
+              "description": "Optional system instruction to shape the answer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tools",
+      "label": "Tools",
+      "description": "Everyday utilities for images, text, and media.",
+      "icon": "tool",
+      "endpoints": [
+        {
+          "name": "removebg",
+          "method": "POST",
+          "description": "Remove the background from an image URL and return a transparent PNG.",
+          "response": "binary",
+          "tags": [
+            "remove background",
+            "removebg",
+            "background remover",
+            "transparent png",
+            "image"
+          ],
+          "exampleResponse": {
+            "contentType": "image/png",
+            "note": "Transparent PNG bytes returned as the response body."
+          },
+          "params": [
+            {
+              "name": "image",
+              "in": "body",
+              "type": "string",
+              "required": true,
+              "placeholder": "https://example.com/photo.jpg",
+              "description": "Source image URL (jpg or png)."
+            }
+          ]
+        },
+        {
+          "name": "translate",
+          "method": "GET",
+          "description": "Translate text between languages with automatic source detection.",
+          "response": "json",
+          "tags": [
+            "translate",
+            "translator",
+            "language",
+            "translation"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "text": "I love you",
+              "source": "auto",
+              "target": "id",
+              "translatedText": "Aku cinta kamu",
+              "detectedSource": "en"
+            }
+          },
+          "params": [
+            {
+              "name": "text",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "I love you",
+              "description": "Text to translate."
+            },
+            {
+              "name": "source",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "default": "auto",
+              "placeholder": "auto",
+              "description": "Source language code, or auto to detect."
+            },
+            {
+              "name": "target",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "default": "en",
+              "placeholder": "en",
+              "description": "Target language code."
+            }
+          ]
+        },
+        {
+          "name": "text-to-base64",
+          "method": "GET",
+          "description": "Encode plain text into a Base64 string.",
+          "response": "json",
+          "tags": [
+            "base64",
+            "base64 encode",
+            "text to base64",
+            "encoder"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "text": "Hello World",
+              "base64": "SGVsbG8gV29ybGQ="
+            }
+          },
+          "params": [
+            {
+              "name": "text",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "Hello World",
+              "description": "Text to encode."
+            }
+          ]
+        },
+        {
+          "name": "base64-to-text",
+          "method": "GET",
+          "description": "Decode a Base64 string back into plain text.",
+          "response": "json",
+          "tags": [
+            "base64",
+            "base64 decode",
+            "base64 to text",
+            "decoder"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "base64": "SGVsbG8gV29ybGQ=",
+              "text": "Hello World"
+            }
+          },
+          "params": [
+            {
+              "name": "base64",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "SGVsbG8gV29ybGQ=",
+              "description": "Base64 string to decode."
+            }
+          ]
+        },
+        {
+          "name": "text2qr",
+          "method": "GET",
+          "description": "Generate a high error-correction QR code from text and return it as a PNG image.",
+          "response": "binary",
+          "tags": [
+            "qr code",
+            "qr generator",
+            "text to qr",
+            "qrcode"
+          ],
+          "exampleResponse": {
+            "contentType": "image/png",
+            "note": "QR code PNG bytes returned as the response body."
+          },
+          "params": [
+            {
+              "name": "text",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "https://thesync.api",
+              "description": "Text or URL to encode into a QR code."
+            },
+            {
+              "name": "size",
+              "in": "query",
+              "type": "number",
+              "required": false,
+              "default": "300",
+              "placeholder": "300",
+              "description": "Image width and height in pixels, from 100 to 1000."
+            }
+          ]
+        },
+        {
+          "name": "dns",
+          "method": "GET",
+          "description": "Resolve DNS records for a domain over Google Public DNS, with record type selection.",
+          "response": "json",
+          "tags": [
+            "dns",
+            "dns lookup",
+            "dns records",
+            "nslookup",
+            "domain"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "domain": "google.com",
+              "type": "A",
+              "records": [
+                {
+                  "name": "google.com",
+                  "type": "A",
+                  "ttl": 300,
+                  "data": "142.250.4.100"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "domain",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "google.com",
+              "description": "Domain name to look up."
+            },
+            {
+              "name": "type",
+              "in": "query",
+              "type": "enum",
+              "required": false,
+              "default": "A",
+              "options": [
+                "A",
+                "AAAA",
+                "CNAME",
+                "MX",
+                "NS",
+                "TXT",
+                "SOA",
+                "CAA",
+                "PTR",
+                "SRV"
+              ],
+              "description": "DNS record type to query."
+            }
+          ]
+        },
+        {
+          "name": "kodepos",
+          "method": "GET",
+          "description": "Search Indonesian postal codes by village or district name from the Pos Indonesia database.",
+          "response": "json",
+          "tags": [
+            "kodepos",
+            "postal code",
+            "indonesia",
+            "zip code",
+            "pos indonesia"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": [
+              {
+                "kodepos": "34676",
+                "desa": "Pasiran Jaya",
+                "kecamatan": "Dente Teladas",
+                "kota": "KAB. TULANG BAWANG",
+                "provinsi": "LAMPUNG"
+              }
+            ]
+          },
+          "params": [
+            {
+              "name": "q",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "pasiran jaya",
+              "description": "Location name such as a village or district."
+            }
+          ]
+        },
+        {
+          "name": "currency",
+          "method": "GET",
+          "description": "Convert an amount between currencies using live exchange rates.",
+          "response": "json",
+          "tags": [
+            "currency",
+            "currency converter",
+            "exchange rate",
+            "forex",
+            "usd to idr"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "from": "USD",
+              "to": "IDR",
+              "amount": 10,
+              "rate": 18089.5,
+              "result": 180895,
+              "updatedAt": "Wed, 11 Nov 2026 00:02:32 +0000"
+            }
+          },
+          "params": [
+            {
+              "name": "from",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "default": "USD",
+              "placeholder": "USD",
+              "description": "Source 3-letter currency code."
+            },
+            {
+              "name": "to",
+              "in": "query",
+              "type": "string",
+              "required": false,
+              "default": "IDR",
+              "placeholder": "IDR",
+              "description": "Target 3-letter currency code."
+            },
+            {
+              "name": "amount",
+              "in": "query",
+              "type": "number",
+              "required": false,
+              "default": "1",
+              "placeholder": "10",
+              "description": "Amount to convert."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "label": "Info",
+      "description": "Live public information feeds, refreshed on every request.",
+      "icon": "activity",
+      "endpoints": [
+        {
+          "name": "bmkg",
+          "method": "GET",
+          "description": "Latest earthquake data from BMKG: automatic, recent, and felt events, with shakemap links.",
+          "response": "json",
+          "tags": [
+            "bmkg",
+            "earthquake",
+            "gempa",
+            "indonesia",
+            "seismic"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "auto": {
+                "Infogempa": {
+                  "gempa": {
+                    "Tanggal": "11 Nov 2026",
+                    "Jam": "06:05:21 WIB",
+                    "Magnitude": "4.3",
+                    "Kedalaman": "5 km",
+                    "Wilayah": "Pusat gempa berada di darat 23 km timur laut Kab. Gayo Lues",
+                    "Potensi": "Tidak berpotensi tsunami",
+                    "Shakemap": "20261111060521.mmi.jpg",
+                    "downloadShakemap": "https://data.bmkg.go.id/DataMKG/TEWS/20261111060521.mmi.jpg"
+                  }
+                }
+              }
+            }
+          },
+          "params": []
+        },
+        {
+          "name": "npm",
+          "method": "GET",
+          "description": "Look up an npm package: latest and first version, update count, dependencies, and publish times.",
+          "response": "json",
+          "tags": [
+            "npm",
+            "npm package",
+            "package info",
+            "registry",
+            "nodejs"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "name": "axios",
+              "description": "Promise based HTTP client for the browser and node.js",
+              "versionLatest": "1.21.1",
+              "versionPublish": "0.1.0",
+              "versionUpdate": 60,
+              "homepage": "https://axios-http.com",
+              "license": "MIT"
+            }
+          },
+          "params": [
+            {
+              "name": "packageName",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "axios",
+              "description": "npm package name."
+            }
+          ]
+        },
+        {
+          "name": "github",
+          "method": "GET",
+          "description": "Fetch a GitHub user profile: bio, avatar, repos, followers, and account dates.",
+          "response": "json",
+          "tags": [
+            "github",
+            "github user",
+            "github profile",
+            "developer",
+            "repos"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "username": "octocat",
+              "nickname": "The Octocat",
+              "bio": "GitHub mascot",
+              "id": 583231,
+              "profilePic": "https://avatars.githubusercontent.com/u/583231",
+              "url": "https://github.com/octocat",
+              "type": "User",
+              "company": "GitHub",
+              "blog": "https://github.blog",
+              "location": "San Francisco",
+              "email": null,
+              "publicRepos": 8,
+              "publicGists": 0,
+              "followers": 9000,
+              "following": 9,
+              "createdAt": "2011-01-25T18:44:36Z",
+              "updatedAt": "2026-01-01T00:00:00Z"
+            }
+          },
+          "params": [
+            {
+              "name": "user",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "octocat",
+              "description": "GitHub username."
+            }
+          ]
+        },
+        {
+          "name": "weather",
+          "method": "GET",
+          "description": "Weather forecast for an Indonesian region from BMKG, matched by location name.",
+          "response": "json",
+          "tags": [
+            "weather",
+            "forecast",
+            "bmkg",
+            "indonesia weather",
+            "cuaca"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "wilayah": {
+                "kode": "18.04.05.2008",
+                "name": "Pasiran Jaya"
+              },
+              "matches": [
+                {
+                  "kode": "18.04.05.2008",
+                  "name": "Pasiran Jaya"
+                }
+              ],
+              "weather": [
+                {
+                  "datetime": "2026-11-12T07:00:00+07:00",
+                  "cuaca": "Cerah",
+                  "suhu": 28
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "q",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "pasiran jaya",
+              "description": "Indonesian region or city name."
+            }
+          ]
+        },
+        {
+          "name": "country",
+          "method": "GET",
+          "description": "Detailed country profile: capital, flag, currency, languages, neighbors, coordinates, and ISO codes.",
+          "response": "json",
+          "tags": [
+            "country",
+            "country info",
+            "capital",
+            "flag",
+            "iso code"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "name": "Indonesia",
+              "capital": "Jakarta",
+              "flag": "https://flagcdn.com/id.svg",
+              "continent": {
+                "code": "AS",
+                "name": "Asia"
+              },
+              "languages": {
+                "native": "Indonesian",
+                "codes": [
+                  "id"
+                ]
+              },
+              "coordinates": {
+                "latitude": -2.5,
+                "longitude": 118
+              }
+            },
+            "searchMetadata": {
+              "originalQuery": "Indonesia",
+              "matchedCountry": "Indonesia",
+              "similarity": 1
+            }
+          },
+          "params": [
+            {
+              "name": "name",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "placeholder": "Indonesia",
+              "description": "Country name. Fuzzy matching suggests close names."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "random",
+      "label": "Random",
+      "description": "Random anime images and quotes for bots, sites, and quick fun.",
+      "icon": "image",
+      "endpoints": [
+        {
+          "name": "waifu",
+          "method": "GET",
+          "description": "Return a random waifu image directly as a file.",
+          "response": "binary",
+          "tags": [
+            "waifu",
+            "anime",
+            "random anime",
+            "anime image",
+            "waifu api"
+          ],
+          "exampleResponse": {
+            "contentType": "image/png",
+            "note": "Random waifu image bytes returned as the response body."
+          },
+          "params": []
+        },
+        {
+          "name": "neko",
+          "method": "GET",
+          "description": "Return a random anime neko image directly as a file.",
+          "response": "binary",
+          "tags": [
+            "neko",
+            "anime",
+            "catgirl",
+            "random anime",
+            "anime image"
+          ],
+          "exampleResponse": {
+            "contentType": "image/png",
+            "note": "Random neko image bytes returned as the response body."
+          },
+          "params": []
+        },
+        {
+          "name": "animequotes",
+          "method": "GET",
+          "description": "Random anime quotes with character, anime title, episode, and source link.",
+          "response": "json",
+          "tags": [
+            "anime quotes",
+            "quotes",
+            "anime",
+            "random quote"
+          ],
+          "exampleResponse": {
+            "success": true,
+            "data": {
+              "link": "https://otakotaku.com/quote/example",
+              "image": "https://otakotaku.com/example.jpg",
+              "character": "Naruto Uzumaki",
+              "anime": "Naruto Shippuden",
+              "episode": "Episode 1",
+              "quotes": "I never go back on my word."
+            }
+          },
+          "params": []
+        }
+      ]
+    }
+  ]
+}
